@@ -1,0 +1,987 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url(../font/Poppins-Regular.otf);
+}
+
+@font-face {
+    font-family: 'Century_Gothic';
+    src: url(../font/Century_Gothic_400.ttf);
+}
+
+body {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: 100vh;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Century_Gothic', 'Arial', sans-serif;
+    width: 100%;
+    background-image: url('../img/bckg/bckg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    font-size: 0;
+    overflow: hidden;
+}
+
+.shadowWrapper {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000099;
+    font-size: 0;
+    overflow: hidden;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 442px;
+    height: 145px;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%, 0 100%);
+    background-color: #000000b3;
+    box-sizing: border-box;
+    padding: 18px 17px;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.menu__hidden {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 442px;
+    height: 145px;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%, 0 100%);
+    background-color: #000000b3;
+    box-sizing: border-box;
+    padding: 18px 17px;
+    overflow: hidden;
+    transition: height 1s 1s linear, clip-path 1s, z-index 0s 2s, backdrop-filter 1s 1s;
+    z-index: 0;
+    backdrop-filter: none;
+}
+
+.menu__show {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 442px;
+    height: 100%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 100%);
+    background-color: #000000b3;
+    box-sizing: border-box;
+    padding: 18px 17px;
+    overflow: hidden;
+    transition: height 1s linear, clip-path 1s 1s, z-index 0s, backdrop-filter 1s;
+    z-index: 1;
+    backdrop-filter: blur(5px);
+}
+
+.menuTop {
+    display: inline-block;
+}
+
+.smallLogo {
+    position: relative;
+    display: inline-block;
+    background-image: url('../img/logo/logo.svg');
+    width: 84px;
+    height: 59px;
+}
+
+.burger {
+    display: inline-block;
+    height: 15px;
+    font-size: 0;
+    box-sizing: border-box;
+    margin-top: 15px;
+    margin-left: 62px;
+    vertical-align: top;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.burger>.circle {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 15px;
+    height: 15px;
+    background-color: #83D024;
+    border-radius: 50%;
+}
+
+.burger>.circle:not(:first-child) {
+    margin-left: 4px;
+}
+
+.menuLinks {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.menuLinkContainer {
+    position: relative;
+    text-align: left;
+    border-bottom: 1px solid #ffffff80;
+    width: 100%;
+    background-color: none;
+    transform: translateX(-999px);
+    transition: background-color 0.5s;
+    box-sizing: border-box;
+}
+
+.menuLinkContainer:last-child {
+    border-bottom: none;
+}
+
+.menuLinkContainer:hover {
+    background-color: #ffffff1a;
+    transition: background-color 0.5s;
+}
+
+.menuLinkContainer__hidden {
+    position: relative;
+    text-align: left;
+    border-bottom: 1px solid #ffffff80;
+    width: 100%;
+    background-color: none;
+    box-sizing: border-box;
+    transform: translateX(-999px);
+}
+
+.menuLinkContainer__hidden:nth-child(5) {
+    transition: transform 1s 0.1s;
+}
+
+.menuLinkContainer__hidden:nth-child(4) {
+    transition: transform 1s 0.2s;
+}
+
+.menuLinkContainer__hidden:nth-child(3) {
+    transition: transform 1s 0.3s;
+}
+
+.menuLinkContainer__hidden:nth-child(2) {
+    transition: transform 1s 0.4s;
+}
+
+.menuLinkContainer__hidden:nth-child(1) {
+    transition: transform 1s 0.5s;
+}
+
+.menuLinkContainer__show {
+    position: relative;
+    text-align: left;
+    border-bottom: 1px solid #ffffff80;
+    width: 100%;
+    background-color: none;
+    box-sizing: border-box;
+    transform: translateX(0);
+}
+
+.menuLinkContainer__show:last-child {
+    border-bottom: none;
+}
+
+.menuLinkContainer__show:hover {
+    background-color: #ffffff1a;
+    transition: background-color 0.5s;
+}
+
+.menuLinkContainer__show:nth-child(1) {
+    transition: transform 1s 0.1s, background-color 0.5s;
+}
+
+.menuLinkContainer__show:nth-child(2) {
+    transition: transform 1s 0.2s, background-color 0.5s;
+}
+
+.menuLinkContainer__show:nth-child(3) {
+    transition: transform 1s 0.3s, background-color 0.5s;
+}
+
+.menuLinkContainer__show:nth-child(4) {
+    transition: transform 1s 0.4s, background-color 0.5s;
+}
+
+.menuLinkContainer__show:nth-child(5) {
+    transition: transform 1s 0.5s, background-color 0.5s;
+}
+
+.menuLink {
+    position: relative;
+    display: inline-block;
+    color: #ffffff;
+    padding: 18px;
+    font-size: 24px;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    transition: color 0.5s;
+}
+
+.menuLink:hover {
+    color: #83D024;
+    transition: color 0.5s;
+}
+
+.content {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    top: 0;
+    left: 0;
+    height: 80%;
+    width: 80%;
+    margin: auto 0;
+}
+
+.titleContainer {
+    display: block;
+    margin: auto 0;
+}
+
+.titleContainer>h1 {
+    font-size: 64px;
+    line-height: 96px;
+    color: #FFFFFF;
+}
+
+.container {
+    display: flex;
+    flex: 1 1 auto;
+    position: relative;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoContainer {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 auto;
+    margin: auto;
+}
+
+.largeLogo {
+    display: flex;
+    content: url(../img/logo/logoLarge.svg);
+    box-sizing: border-box;
+}
+
+.cactus {
+    display: flex;
+    position: relative;
+    flex: 0 1 auto;
+    content: url(../img/icons/cactus.svg);
+    box-sizing: border-box;
+    align-self: flex-end;
+}
+
+@keyframes rotateCircle {
+    from { 	transform: rotate(0deg) }
+	to   {  transform: rotate(360deg) }
+}
+
+@keyframes rotateCircleRev {
+    from { 
+        transform: rotate(0deg);
+    }
+    to { 
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes blur {
+    from {
+        filter: blur(15px);
+    }
+    to {
+        filter: none;
+    }
+}
+
+.contacts {
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    border-radius: 50%;
+    align-self: center;
+    animation: rotateCircle 12s linear infinite;
+    /* border: 3px solid red; */
+}
+
+.letter {
+    display: inline-block;
+    position: absolute;
+    top: -2%;
+    left: 46%;
+    content: url('../img/icons/letter.svg');
+    box-sizing: border-box;
+    animation: rotateCircleRev 12s linear infinite;
+}
+
+.letter:hover {
+    animation: blur 1s linear infinite alternate;
+}
+
+.phone {
+    display: inline-block;
+    position: absolute;
+    top: 28%;
+    left: 92%;
+    content: url('../img/icons/phone.svg');
+    box-sizing: border-box;
+    animation: rotateCircleRev 12s linear infinite;
+}
+
+.phone:hover {
+    animation: blur 1s linear infinite alternate;
+}
+
+.skype {
+    display: inline-block;
+    position: absolute;
+    top: 80%;
+    left: 80%;
+    content: url('../img/icons/skype.svg');
+    box-sizing: border-box;
+    animation: rotateCircleRev 12s linear infinite;
+}
+
+.skype:hover {
+    animation: blur 1s linear infinite alternate;
+}
+
+.telegram {
+    display: inline-block;
+    position: absolute;
+    top: 80%;
+    left: 8%;
+    content: url('../img/icons/telegram.svg');
+    box-sizing: border-box;
+    animation: rotateCircleRev 12s linear infinite;
+}
+.telegram:hover {
+    animation: blur 1s linear infinite alternate;
+}
+
+.viber {
+    display: inline-block;
+    position: absolute;
+    top: 28%;
+    left: 0;
+    content: url('../img/icons/viber.svg');
+    box-sizing: border-box;
+    animation: rotateCircleRev 12s linear infinite;
+}
+
+.viber:hover {
+    animation: blur 1s linear infinite alternate;
+}
+
+.about {
+    position: absolute;
+    display: inline-block;
+    right: 0;
+    border-radius: 50%;
+    transform: rotate(90deg) translateY(-50%);
+    height: 175px;
+    width: 175px;
+    box-sizing: border-box;
+    background-color: #83D024;
+    text-align: center;
+    text-decoration: none;
+    font-size: 24px;
+    line-height: 36px;
+    color: #FFFFFF;
+    padding-top: 120px;
+}
+
+.scrollDown {
+    position: absolute;
+    display: inline-block;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 30px;
+    color: #FFFFFF;
+}
+
+@keyframes ab {
+    0% {
+        top: 0;
+        left: 100%;
+        transform: translateX(100%);
+        height: 100%;
+        width: 0%;
+    }
+
+    100% {
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: 0;
+        transform: translateX(0);
+    }
+}
+
+.aboutPage {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    background-color: #83D024;
+    font-size: 0;
+    overflow: hidden;
+    z-index: 2;
+    box-sizing: border-box;
+    animation: ab forwards 1 2s;
+}
+
+.aboutPageText {
+    color: #ffffff;
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 600px) {
+    .menu, .menu__hidden {
+        width: 100%;
+        height: 145px;
+    }
+  
+    .menu__show {
+      width: 100%;
+      height: 100%;
+    }
+
+    .menuLink {
+        padding: 3px;
+    }
+  
+    .content {
+      flex-direction: column;
+      margin-top: 145px;
+      height: 60%;
+    }
+  
+    .titleContainer {
+        margin: 0;
+    }
+  
+    .titleContainer>h1 {
+      font-size: 32px;
+      line-height: 32px;
+    }
+  
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+  
+    .logoContainer {
+        display: flex;
+        flex: 0 1 50px;
+        flex-direction: row;
+        box-sizing: border-box;
+        margin: 0;
+        font-size: 0;
+        height: 50px;
+        width: 100%;
+        align-items: flex-end;
+    }
+  
+    .largeLogo {
+        display: inline-block;
+        height: 80%;
+    }
+  
+    .cactus {
+        display: inline-block;
+        height: 20%;
+    }
+  
+    .contacts {
+        position: relative;
+        display: flex;
+        flex: 0 1 50px;
+        flex-direction: row;
+        box-sizing: border-box;
+        margin-top: 3px;
+        font-size: 0;
+        height: 42px;
+        width: 100%;
+        justify-content: space-between;
+        align-items: flex-start;
+        animation: none;
+    }
+  
+    .skype,
+    .viber,
+    .phone,
+    .letter,
+    .telegram {
+        position: static;
+        animation: none;
+        height: 42px;
+    }
+  
+    .menuLinks {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .menu, .menu__hidden {
+        width: 442px;
+        height: 145px;
+    }
+  
+    .menu__show {
+      width: 442px;
+      height: 100%;
+    }
+
+    .menuLink {
+        padding: 3px;
+    }
+  
+    .content {
+      flex-direction: column;
+      margin-top: 145px;
+      height: 60%;
+    }
+  
+    .titleContainer {
+        margin: 0;
+    }
+  
+    .titleContainer>h1 {
+      font-size: 32px;
+      line-height: 32px;
+    }
+  
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+  
+    .logoContainer {
+        display: flex;
+        flex: 0 1 50px;
+        flex-direction: row;
+        box-sizing: border-box;
+        margin: 0;
+        font-size: 0;
+        height: 50px;
+        width: 100%;
+        align-items: flex-end;
+    }
+  
+    .largeLogo {
+        display: inline-block;
+        height: 80%;
+    }
+  
+    .cactus {
+        display: inline-block;
+        height: 20%;
+    }
+  
+    .contacts {
+        position: relative;
+        display: flex;
+        flex: 0 1 50px;
+        flex-direction: row;
+        box-sizing: border-box;
+        margin: 0;
+        font-size: 0;
+        height: 50px;
+        width: 100%;
+        justify-content: space-between;
+        align-items: flex-end;
+        animation: none;
+    }
+  
+    .skype,
+    .viber,
+    .phone,
+    .letter,
+    .telegram {
+        position: static;
+        animation: none;
+        height: 42px;
+    }
+  
+    .menuLinks {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .menuLink {
+        padding: 18px;
+    }
+
+    .content {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        top: 0;
+        left: 0;
+        height: 80%;
+        width: 80%;
+        margin: auto 0;
+    }
+
+    .titleContainer>h1 {
+        font-size: 42px;
+        line-height: 42px;
+    }
+
+    .menu, .menu__hidden {
+        width: 442px;
+        height: 145px;
+    }
+
+    .menu__show {
+        width: 442px;
+        height: 100%;
+    }
+
+    .content {
+        flex-direction: column;
+        margin-top: 145px;
+        height: 60%;
+    }
+
+    .titleContainer {
+        margin: 0;
+    }
+
+    .titleContainer>h1 {
+        font-size: 42px;
+        line-height: 42px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logoContainer {
+        display: flex;
+        flex: 0 1 150px;
+        flex-direction: row;
+        box-sizing: border-box;
+        margin: 0;
+        font-size: 0;
+        height: 50px;
+        width: 100%;
+        align-items: flex-end;
+    }
+
+    .largeLogo {
+        display: inline-block;
+        height: 80%;
+    }
+
+    .cactus {
+        display: inline-block;
+        height: 20%;
+    }
+
+    .contacts {
+        position: absolute;
+        height: 350px;
+        width: 350px;
+        border-radius: 50%;
+        align-self: center;
+        animation: rotateCircle 15s linear infinite;
+    }
+
+    .letter {
+        display: inline-block;
+        position: absolute;
+        top: -2%;
+        left: 46%;
+        content: url('../img/icons/letter.svg');
+        box-sizing: border-box;
+        animation: rotateCircleRev 12s linear infinite;
+    }
+    
+    .letter:hover {
+        animation: blur 1s linear infinite alternate;
+    }
+    
+    .phone {
+        display: inline-block;
+        position: absolute;
+        top: 28%;
+        left: 92%;
+        content: url('../img/icons/phone.svg');
+        box-sizing: border-box;
+        animation: rotateCircleRev 12s linear infinite;
+    }
+    
+    .phone:hover {
+        animation: blur 1s linear infinite alternate;
+    }
+    
+    .skype {
+        display: inline-block;
+        position: absolute;
+        top: 80%;
+        left: 80%;
+        content: url('../img/icons/skype.svg');
+        box-sizing: border-box;
+        animation: rotateCircleRev 12s linear infinite;
+    }
+    
+    .skype:hover {
+        animation: blur 1s linear infinite alternate;
+    }
+    
+    .telegram {
+        display: inline-block;
+        position: absolute;
+        top: 80%;
+        left: 8%;
+        content: url('../img/icons/telegram.svg');
+        box-sizing: border-box;
+        animation: rotateCircleRev 12s linear infinite;
+    }
+    .telegram:hover {
+        animation: blur 1s linear infinite alternate;
+    }
+    
+    .viber {
+        display: inline-block;
+        position: absolute;
+        top: 28%;
+        left: 0;
+        content: url('../img/icons/viber.svg');
+        box-sizing: border-box;
+        animation: rotateCircleRev 12s linear infinite;
+    }
+    
+    .viber:hover {
+        animation: blur 1s linear infinite alternate;
+    }
+
+    .menuLinks {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .titleContainer>h1 {
+        font-size: 42px;
+        line-height: 42px;
+    }
+
+    .menu, .menu__hidden {
+        width: 442px;
+        height: 145px;
+    }
+
+    .menu__show {
+        width: 442px;
+        height: 100%;
+    }
+
+    .content {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        top: 0;
+        left: 0;
+        height: 80%;
+        width: 90%;
+        margin: auto 0;
+    }
+    
+    .titleContainer {
+        display: block;
+        margin: auto 0;
+    }
+    
+    .titleContainer>h1 {
+        font-size: 52px;
+        line-height: 52px;
+        color: #FFFFFF;
+        white-space: nowrap;
+    }
+    
+    .container {
+        display: flex;
+        flex: 1 1 auto;
+        position: relative;
+        box-sizing: border-box;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .logoContainer {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex: 0 1 236px;
+        margin: auto 0;
+    }
+    
+    .largeLogo {
+        content: url(../img/logo/logoLarge.svg);
+        box-sizing: border-box;
+        width: 337px;
+        height: 100%;
+    }
+    
+    .cactus {
+        content: url(../img/icons/cactus.svg);
+        display: inline-block;
+        height: 59px;
+    }
+
+    .contacts {
+        position: absolute;
+        height: 500px;
+        width: 500px;
+        border-radius: 50%;
+        align-self: center;
+        animation: rotateCircle 12s linear infinite;
+        /* border: 3px solid red; */
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .content {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        top: 0;
+        left: 0;
+        height: 80%;
+        width: 80%;
+        margin: auto 0;
+    }
+
+    .titleContainer>h1 {
+        font-size: 64px;
+        line-height: 92px;
+    }
+
+    .menu, .menu__hidden {
+        width: 442px;
+        height: 145px;
+    }
+
+    .menu__show {
+        width: 442px;
+        height: 100%;
+    }
+
+    .content {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        top: 0;
+        left: 0;
+        height: 80%;
+        width: 80%;
+        margin: auto 0;
+    }
+    
+    .titleContainer {
+        display: block;
+        margin: auto 0;
+    }
+    
+    .titleContainer>h1 {
+        font-size: 64px;
+        line-height: 92px;
+        color: #FFFFFF;
+        white-space: nowrap;
+    }
+    
+    .container {
+        display: flex;
+        flex: 1 1 auto;
+        position: relative;
+        box-sizing: border-box;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .logoContainer {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex: 0 1 236px;
+        margin: auto 0;
+    }
+    
+    .largeLogo {
+        content: url(../img/logo/logoLarge.svg);
+        box-sizing: border-box;
+        width: 337px;
+        height: 100%;
+    }
+    
+    .cactus {
+        content: url(../img/icons/cactus.svg);
+        display: inline-block;
+        height: 59px;
+    }
+
+    .contacts {
+        position: absolute;
+        height: 500px;
+        width: 500px;
+        border-radius: 50%;
+        align-self: center;
+        animation: rotateCircle 12s linear infinite;
+    }
+}
